@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class register {
+    int id;
     String name;
     String email;
     int phoneNumber;
