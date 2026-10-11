@@ -1,4 +1,7 @@
 package org.government.Authentication.Resitory;
 
-public interface register {
+import org.government.Authentication.Entity.registerEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface register extends JpaRepository<registerEntity, Integer> {
 }
