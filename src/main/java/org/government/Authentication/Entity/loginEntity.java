@@ -1,4 +1,4 @@
 package org.government.Authentication.Entity;
 
-public class login {
+public class loginEntity {
 }
