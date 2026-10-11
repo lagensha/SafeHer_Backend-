@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class register {
+public class registerDTO {
     int id;
     String name;
     String email;
