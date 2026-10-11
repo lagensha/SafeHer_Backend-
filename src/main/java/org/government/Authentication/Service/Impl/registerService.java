@@ -2,6 +2,7 @@ package org.government.Authentication.Service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.registerDTO;
+import org.government.Authentication.Entity.registerEntity;
 import org.government.Authentication.Repository.register_Repository;
 import org.government.Authentication.Service.register_Impl;
 import org.modelmapper.ModelMapper;
@@ -16,7 +17,8 @@ public class registerService implements register_Impl {
 
     @Override
     public void registerUser(registerDTO registerDTO) {
-
+        registerEntity registerEntity = modelMapper.map(registerDTO, registerEntity.class);
+        registerRepository.save(registerEntity);
     }
 
     @Override
