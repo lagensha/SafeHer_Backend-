@@ -1,4 +1,4 @@
 package org.government.Authentication.Controller;
 
-public class register {
+public class registerController {
 }
