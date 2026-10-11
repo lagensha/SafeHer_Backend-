@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 
-public class register {
+public class registerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
