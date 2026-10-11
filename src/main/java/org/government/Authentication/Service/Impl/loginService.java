@@ -1,4 +1,4 @@
 package org.government.Authentication.Service.Impl;
 
-public class login {
+public class loginService {
 }
