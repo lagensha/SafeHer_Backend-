@@ -1,4 +1,4 @@
-package org.government.Authentication.Security;
+package org.government.Security;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
