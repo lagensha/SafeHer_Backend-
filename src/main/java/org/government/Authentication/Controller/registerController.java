@@ -29,9 +29,9 @@ public class registerController  {
         registerService.deleteUser(id);
     }
 
-
+    @PutMapping("/SearchById/{id}")
     public registerDTO getUserById(Long id) {
-        return null;
+        return registerService.getUserById(id);
     }
 
 
