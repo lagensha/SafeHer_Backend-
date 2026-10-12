@@ -2,9 +2,13 @@ package org.government.Authentication.Controller;
 
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.registerDTO;
+import org.government.Authentication.Entity.registerEntity;
+import org.government.Authentication.Repository.register_Repository;
 import org.government.Authentication.Service.Impl.registerService;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -13,6 +17,8 @@ import java.util.List;
 public class registerController  {
 
     final registerService registerService;
+    private final register_Repository register_Repository;
+    private final ModelMapper modelMapper;
 
     @PostMapping("/register")
     public void registerUser(@RequestBody registerDTO registerDTO) {
@@ -34,8 +40,8 @@ public class registerController  {
         return registerService.getUserById(id);
     }
 
-
+    @GetMapping("/getAll")
     public List<registerDTO> getAllUsers() {
-        return List.of();
+     return registerService.getAllUsers();
     }
 }
