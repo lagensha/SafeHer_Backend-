@@ -8,6 +8,7 @@ import org.government.Authentication.Service.register_Impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @RequiredArgsConstructor
 @Service
@@ -41,6 +42,12 @@ public class registerService implements register_Impl {
 
     @Override
     public List<registerDTO> getAllUsers() {
-        return List.of();
+        List<registerEntity>registerEntities=registerRepository.findAll();
+        ArrayList<registerDTO> registerDTOS=new ArrayList<>();
+        registerEntities.forEach(registerEntity -> {
+            registerDTO registerDTO=modelMapper.map(registerEntity,registerDTO.class);
+            registerDTOS.add(registerDTO);
+        });
+        return registerDTOS;
     }
 }
