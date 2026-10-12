@@ -3,9 +3,7 @@ package org.government.Authentication.Controller;
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.registerDTO;
 import org.government.Authentication.Service.Impl.registerService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,13 +15,13 @@ public class registerController  {
     final registerService registerService;
 
     @PostMapping("/register")
-    public void registerUser(registerDTO registerDTO) {
+    public void registerUser(@RequestBody registerDTO registerDTO) {
         registerService.registerUser(registerDTO);
     }
 
-
-    public void registerAdmin(registerDTO registerDTO) {
-
+    @PutMapping("/update")
+    public void registerUpdate(registerDTO registerDTO) {
+        registerService.registerUpdate(registerDTO);
     }
 
 
