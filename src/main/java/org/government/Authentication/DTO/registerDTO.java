@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class registerDTO {
-    int id;
+    Long id;
     String name;
     String email;
-    int phoneNumber;
+    String phoneNumber;
     String password;
 }
