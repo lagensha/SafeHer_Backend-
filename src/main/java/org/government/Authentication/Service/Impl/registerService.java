@@ -34,7 +34,9 @@ public class registerService implements register_Impl {
 
     @Override
     public registerDTO getUserById(Long id) {
-        return null;
+        registerEntity registerEntity=registerRepository.findById(id).get();
+        registerDTO registerDTO=modelMapper.map(registerEntity,registerDTO.class);
+        return registerDTO;
     }
 
     @Override
