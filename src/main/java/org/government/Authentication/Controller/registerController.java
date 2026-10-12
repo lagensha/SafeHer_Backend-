@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/register")
+@RequestMapping("api/v1/register")
 public class registerController  {
 
     final registerService registerService;
@@ -20,17 +20,17 @@ public class registerController  {
     }
 
     @PutMapping("/update")
-    public void registerUpdate(registerDTO registerDTO) {
+    public void registerUpdate(@RequestBody registerDTO registerDTO) {
         registerService.registerUpdate(registerDTO);
     }
 
-
-    public void deleteUser(String username) {
-
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        registerService.deleteUser(id);
     }
 
 
-    public registerDTO getUserById(String username) {
+    public registerDTO getUserById(Long id) {
         return null;
     }
 

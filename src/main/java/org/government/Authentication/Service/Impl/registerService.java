@@ -28,12 +28,12 @@ public class registerService implements register_Impl {
     }
 
     @Override
-    public void deleteUser(String username) {
-
+    public void deleteUser(Long id) {
+        registerRepository.deleteById(id);
     }
 
     @Override
-    public registerDTO getUserById(String username) {
+    public registerDTO getUserById(Long id) {
         return null;
     }
 

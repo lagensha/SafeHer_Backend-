@@ -7,8 +7,8 @@ import java.util.List;
 public interface register_Impl {
         void registerUser(registerDTO registerDTO);
         void registerUpdate(registerDTO registerDTO);
-        void deleteUser(String username);
-        registerDTO getUserById(String username);
+        void deleteUser(Long id);
+        registerDTO getUserById(Long id);
         List<registerDTO> getAllUsers();
 
 }
