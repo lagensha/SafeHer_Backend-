@@ -22,7 +22,7 @@ public class registerService implements register_Impl {
     }
 
     @Override
-    public void registerAdmin(registerDTO registerDTO) {
+    public void registerUpdate(registerDTO registerDTO) {
         registerEntity registerEntity = modelMapper.map(registerDTO, registerEntity.class);
         registerRepository.save(registerEntity);
     }
