@@ -2,13 +2,12 @@ package org.government.Authentication.Controller;
 
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.registerDTO;
-import org.government.Authentication.Entity.registerEntity;
 import org.government.Authentication.Repository.register_Repository;
 import org.government.Authentication.Service.Impl.registerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RequiredArgsConstructor
