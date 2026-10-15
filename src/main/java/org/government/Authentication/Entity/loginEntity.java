@@ -17,6 +17,6 @@ public class loginEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private String  username;
-    private String password;
-    private String email;
+     private String password;
+     private String email;
 }
