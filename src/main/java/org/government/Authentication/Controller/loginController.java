@@ -16,16 +16,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/v1/login")
 public class loginController {
-    final loginService loginService;
+    private final loginService loginService;
 
     @PostMapping("/login")
-    public ResponseEntity<?>loginUser(@RequestBody loginDTO loginDTO){
-      try{
-          loginService.loginUser(loginDTO);
-          return ResponseEntity.ok(Map.of("message","Login successful"));
-      }catch (RuntimeException e){
-          return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                  .body(Map.of("message",e.getMessage()));
-      }
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody loginDTO loginDTO) {
+        if (loginService.loginUser(loginDTO)) {
+            return ResponseEntity.ok(Map.of("message", "Login successful"));
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("message", "Invalid email or password"));
     }
 }
