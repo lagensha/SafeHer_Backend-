@@ -5,18 +5,15 @@ import org.government.Authentication.DTO.loginDTO;
 import org.government.Authentication.Entity.loginEntity;
 import org.government.Authentication.Repository.login_Repository;
 import org.government.Authentication.Service.login_Impl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
 public class loginService implements login_Impl {
-    @Autowired
-    private login_Repository loginRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    final login_Repository loginRepository;
+    final private PasswordEncoder passwordEncoder;
 
     @Override
     public boolean loginUser(loginDTO loginDTO) {
