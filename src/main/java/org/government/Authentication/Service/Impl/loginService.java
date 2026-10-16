@@ -20,6 +20,9 @@ public class loginService implements login_Impl {
     public boolean loginUser(loginDTO loginDTO) {
         loginEntity user = loginRepository.findByEmail(loginDTO.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found with email: " + loginDTO.getEmail()));
-
+         if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())){
+            throw new RuntimeException("Invalid password");
+         }
+         return true;
     }
 }
