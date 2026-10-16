@@ -1,5 +1,6 @@
 package org.government.Authentication.Service.Impl;
 
+import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.loginDTO;
 import org.government.Authentication.Entity.loginEntity;
 import org.government.Authentication.Repository.login_Repository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class loginService implements login_Impl {
     @Autowired
