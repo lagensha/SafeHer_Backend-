@@ -1,6 +1,7 @@
 package org.government.Authentication.Service.Impl;
 
 import org.government.Authentication.DTO.loginDTO;
+import org.government.Authentication.Entity.loginEntity;
 import org.government.Authentication.Repository.login_Repository;
 import org.government.Authentication.Service.login_Impl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class loginService implements login_Impl {
 
     @Override
     public boolean loginUser(loginDTO loginDTO) {
-        return false;
+        loginEntity user = loginRepository.findByEmail(loginDTO.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found with email: " + loginDTO.getEmail()));
+
     }
 }
