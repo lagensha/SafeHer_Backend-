@@ -1,9 +1,9 @@
 package org.government.Authentication.Controller;
 
 import lombok.RequiredArgsConstructor;
-import org.government.Authentication.DTO.registerDTO;
-import org.government.Authentication.Repository.register_Repository;
-import org.government.Authentication.Service.Impl.registerService;
+import org.government.Authentication.DTO.RegisterDTO;
+import org.government.Authentication.Repository.Register_Repository;
+import org.government.Authentication.Service.Impl.RegisterService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,20 +13,20 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/register")
-public class registerController  {
+public class RegisterController {
 
-    final registerService registerService;
-    private final register_Repository register_Repository;
+    final RegisterService registerService;
+    private final Register_Repository register_Repository;
     private final ModelMapper modelMapper;
 
     @PostMapping("/register")
-    public void registerUser(@RequestBody registerDTO registerDTO) {
+    public void registerUser(@RequestBody RegisterDTO registerDTO) {
 
         registerService.registerUser(registerDTO);
     }
 
     @PutMapping("/update")
-    public void registerUpdate(@RequestBody registerDTO registerDTO) {
+    public void registerUpdate(@RequestBody RegisterDTO registerDTO) {
 
         registerService.registerUpdate(registerDTO);
     }
@@ -38,12 +38,12 @@ public class registerController  {
     }
 
     @GetMapping("/SearchById/{id}")
-    public registerDTO getUserById(@PathVariable Long id) {
+    public RegisterDTO getUserById(@PathVariable Long id) {
         return registerService.getUserById(id);
     }
 
     @GetMapping("/getAll")
-    public List<registerDTO> getAllUsers() {
+    public List<RegisterDTO> getAllUsers() {
 
         return registerService.getAllUsers();
     }
