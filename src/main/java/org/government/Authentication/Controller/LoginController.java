@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -27,4 +28,17 @@ public class LoginController {
     public void loginUpdate(@RequestBody LoginDTO loginDTO) {
         loginService.loginUpdate(loginDTO);
     }
+    @DeleteMapping("/delete/{id}")
+    public void loginDelete(@PathVariable Long id) {
+        loginService.loginDelete(id);
+    }
+    @GetMapping("/SearchById/{id}")
+    public LoginDTO getUserById(@PathVariable Long id) {
+        return loginService.getUserById(id);
+    }
+
+    public List<LoginDTO> getAllUsers() {
+        return List.of();
+    }
+
 }
