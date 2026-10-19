@@ -5,10 +5,7 @@ import org.government.Authentication.DTO.LoginDTO;
 import org.government.Authentication.Service.Impl.LoginService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -25,5 +22,9 @@ public class LoginController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Map.of("message", "Invalid email or password"));
+    }
+    @PutMapping("/update")
+    public void loginUpdate(@RequestBody LoginDTO loginDTO) {
+        loginService.loginUpdate(loginDTO);
     }
 }
