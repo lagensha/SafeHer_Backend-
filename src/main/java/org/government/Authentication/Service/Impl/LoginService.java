@@ -44,6 +44,11 @@ public class LoginService implements Login_Impl {
 
     @Override
     public void getLoginUser(LoginDTO loginDTO) {
+        LoginEntity loginEntity = modelMapper.map(loginDTO, LoginEntity.class);
+        loginEntity.setUsername(loginDTO.getUsername());
+        loginEntity.setPassword(loginDTO.getPassword());
+        loginEntity.setEmail(loginDTO.getEmail());
+        loginRepository.save(loginEntity);
 
     }
 
