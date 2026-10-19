@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -55,7 +56,13 @@ public class LoginService implements Login_Impl {
 
     @Override
     public List<LoginDTO> getAllUsers() {
-        return List.of();
+       List<LoginEntity>loginEntities=loginRepository.findAll();
+        ArrayList<LoginDTO>loginDTOS=new ArrayList<>();
+        loginEntities.forEach(loginEntity -> {
+            LoginDTO loginDTO=modelMapper.map(loginEntity,LoginDTO.class);
+            loginDTOS.add(loginDTO);
+        });
+        return loginDTOS;
     }
 
 }
