@@ -8,6 +8,8 @@ import org.government.Authentication.Service.login_Impl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class loginService implements login_Impl {
@@ -21,6 +23,31 @@ public class loginService implements login_Impl {
 
         return user != null
                 && passwordEncoder.matches(loginDTO.getPassword(), user.getPassword());
+    }
+
+    @Override
+    public void loginUpdate(loginDTO loginDTO) {
+
+    }
+
+    @Override
+    public void loginDelete(String email) {
+
+    }
+
+    @Override
+    public void getLoginUser(loginDTO loginDTO) {
+
+    }
+
+    @Override
+    public loginDTO getUserByEmail(String email) {
+        return null;
+    }
+
+    @Override
+    public List<loginDTO> getAllUsers() {
+        return List.of();
     }
 
 }
