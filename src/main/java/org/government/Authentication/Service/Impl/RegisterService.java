@@ -1,10 +1,10 @@
 package org.government.Authentication.Service.Impl;
 
 import lombok.RequiredArgsConstructor;
-import org.government.Authentication.DTO.registerDTO;
-import org.government.Authentication.Entity.registerEntity;
-import org.government.Authentication.Repository.register_Repository;
-import org.government.Authentication.Service.register_Impl;
+import org.government.Authentication.DTO.RegisterDTO;
+import org.government.Authentication.Entity.RegisterEntity;
+import org.government.Authentication.Repository.Register_Repository;
+import org.government.Authentication.Service.Register_Impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 @RequiredArgsConstructor
 @Service
-public class registerService implements register_Impl {
-         final register_Repository registerRepository;
+public class RegisterService implements Register_Impl {
+         final Register_Repository registerRepository;
          final ModelMapper modelMapper;
     final private PasswordEncoder passwordEncoder;
 
     @Override
-    public void registerUser(registerDTO registerDTO) {
-        registerEntity registerEntity = new registerEntity();
+    public void registerUser(RegisterDTO registerDTO) {
+        RegisterEntity registerEntity = new RegisterEntity();
         registerEntity.setName(registerDTO.getName());
         registerEntity.setEmail(registerDTO.getEmail());
         registerEntity.setPhoneNumber(registerDTO.getPhoneNumber());
@@ -29,8 +29,8 @@ public class registerService implements register_Impl {
     }
 
     @Override
-    public void registerUpdate(registerDTO registerDTO) {
-        registerEntity registerEntity = modelMapper.map(registerDTO, registerEntity.class);
+    public void registerUpdate(RegisterDTO registerDTO) {
+        RegisterEntity registerEntity = modelMapper.map(registerDTO, RegisterEntity.class);
         registerRepository.save(registerEntity);
     }
 
@@ -40,21 +40,21 @@ public class registerService implements register_Impl {
     }
 
     @Override
-    public registerDTO getUserById(Long id) {
+    public RegisterDTO getUserById(Long id) {
         if (!registerRepository.existsById(id)) {
             throw new RuntimeException("User not found");
         }
-        registerEntity registerEntity=registerRepository.findById(id).get();
-        registerDTO registerDTO=modelMapper.map(registerEntity,registerDTO.class);
+        RegisterEntity registerEntity=registerRepository.findById(id).get();
+        RegisterDTO registerDTO=modelMapper.map(registerEntity, RegisterDTO.class);
         return registerDTO;
     }
 
     @Override
-    public List<registerDTO> getAllUsers() {
-        List<registerEntity>registerEntities=registerRepository.findAll();
-        ArrayList<registerDTO> registerDTOS=new ArrayList<>();
+    public List<RegisterDTO> getAllUsers() {
+        List<RegisterEntity>registerEntities=registerRepository.findAll();
+        ArrayList<RegisterDTO> registerDTOS=new ArrayList<>();
         registerEntities.forEach(registerEntity -> {
-            registerDTO registerDTO=modelMapper.map(registerEntity,registerDTO.class);
+            RegisterDTO registerDTO=modelMapper.map(registerEntity, RegisterDTO.class);
             registerDTOS.add(registerDTO);
         });
         return registerDTOS;
