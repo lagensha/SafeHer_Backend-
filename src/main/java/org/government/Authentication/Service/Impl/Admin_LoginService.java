@@ -1,4 +1,4 @@
 package org.government.Authentication.Service.Impl;
 
-public class admin_LoginService {
+public class Admin_LoginService {
 }
