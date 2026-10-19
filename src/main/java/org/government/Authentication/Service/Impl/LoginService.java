@@ -23,11 +23,16 @@ public class LoginService implements Login_Impl {
 
     @Override
     public boolean loginUser(LoginDTO loginDTO) {
+        LoginEntity log = new LoginEntity();
+        log.setEmail(loginDTO.getEmail());
+        log.setUsername(loginDTO.getUsername());
+        loginRepository.save(log);
         RegisterEntity user = registerRepository.findByEmail(loginDTO.getEmail().trim())
                 .orElse(null);
 
         return user != null
                 && passwordEncoder.matches(loginDTO.getPassword(), user.getPassword());
+
     }
 
     @Override
@@ -38,20 +43,9 @@ public class LoginService implements Login_Impl {
      }
 
     @Override
-    public void loginDelete(String id) {
+    public void loginDelete(Long id) {
         loginRepository.deleteById(id);
     }
-
-    @Override
-    public void getLoginUser(LoginDTO loginDTO) {
-        LoginEntity loginEntity = modelMapper.map(loginDTO, LoginEntity.class);
-        loginEntity.setUsername(loginDTO.getUsername());
-        loginEntity.setPassword(loginDTO.getPassword());
-        loginEntity.setEmail(loginDTO.getEmail());
-        loginRepository.save(loginEntity);
-
-    }
-
     @Override
     public LoginDTO getUserByEmail(String email) {
 
