@@ -1,4 +1,4 @@
 package org.government.Authentication.Repository;
 
-public interface admin_Login_Repository {
+public interface Admin_Login_Repository {
 }
