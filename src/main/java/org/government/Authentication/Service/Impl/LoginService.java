@@ -3,8 +3,10 @@ package org.government.Authentication.Service.Impl;
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.LoginDTO;
 import org.government.Authentication.Entity.RegisterEntity;
+import org.government.Authentication.Repository.Login_Repository;
 import org.government.Authentication.Repository.Register_Repository;
 import org.government.Authentication.Service.Login_Impl;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import java.util.List;
 @Service
 public class LoginService implements Login_Impl {
     private final Register_Repository registerRepository;
+    private final Login_Repository loginRepository;
+    private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -27,6 +31,7 @@ public class LoginService implements Login_Impl {
 
     @Override
     public void loginUpdate(LoginDTO loginDTO) {
+
      }
 
     @Override
