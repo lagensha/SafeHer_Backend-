@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Login")
 public class LoginEntity {
+     private String id;
      private String  username;
      private String password;
      @Id
