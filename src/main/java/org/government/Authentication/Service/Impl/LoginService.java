@@ -2,6 +2,7 @@ package org.government.Authentication.Service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.LoginDTO;
+import org.government.Authentication.Entity.LoginEntity;
 import org.government.Authentication.Entity.RegisterEntity;
 import org.government.Authentication.Repository.Login_Repository;
 import org.government.Authentication.Repository.Register_Repository;
@@ -31,6 +32,8 @@ public class LoginService implements Login_Impl {
 
     @Override
     public void loginUpdate(LoginDTO loginDTO) {
+        LoginEntity loginEntity=modelMapper.map(loginDTO,LoginEntity.class);
+        loginRepository.save(loginEntity);
 
      }
 
