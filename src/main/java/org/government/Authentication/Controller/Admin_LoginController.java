@@ -1,4 +1,4 @@
 package org.government.Authentication.Controller;
 
-public class admin_LoginController {
+public class Admin_LoginController {
 }
