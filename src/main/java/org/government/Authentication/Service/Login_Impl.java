@@ -7,8 +7,7 @@ import java.util.List;
 public interface Login_Impl {
     boolean loginUser(LoginDTO loginDTO);
     void loginUpdate(LoginDTO loginDTO);
-    void loginDelete(String id);
-    void getLoginUser(LoginDTO loginDTO);
+    void loginDelete(Long id);
     LoginDTO getUserByEmail(String email);
     List<LoginDTO> getAllUsers();
 
