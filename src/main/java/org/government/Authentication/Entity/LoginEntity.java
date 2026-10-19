@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "Login")
-public class loginEntity {
+public class LoginEntity {
      private String  username;
      private String password;
      @Id
