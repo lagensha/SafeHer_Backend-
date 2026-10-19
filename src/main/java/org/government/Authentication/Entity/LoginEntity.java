@@ -15,5 +15,6 @@ public class LoginEntity {
      private Long id;
      private String  username;
      private String password;
+     @Column(unique = true)
      private String email;
 }
