@@ -37,8 +37,9 @@ public class LoginController {
         return loginService.getUserById(id);
     }
 
+    @GetMapping("/getAll")
     public List<LoginDTO> getAllUsers() {
-        return List.of();
+        return loginService.getAllUsers();
     }
 
 }
