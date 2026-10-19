@@ -21,26 +21,30 @@ public class registerController  {
 
     @PostMapping("/register")
     public void registerUser(@RequestBody registerDTO registerDTO) {
+
         registerService.registerUser(registerDTO);
     }
 
     @PutMapping("/update")
     public void registerUpdate(@RequestBody registerDTO registerDTO) {
+
         registerService.registerUpdate(registerDTO);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) {
+
         registerService.deleteUser(id);
     }
 
-    @PutMapping("/SearchById/{id}")
-    public registerDTO getUserById(Long id) {
+    @GetMapping("/SearchById/{id}")
+    public registerDTO getUserById(@PathVariable Long id) {
         return registerService.getUserById(id);
     }
 
     @GetMapping("/getAll")
     public List<registerDTO> getAllUsers() {
-     return registerService.getAllUsers();
+
+        return registerService.getAllUsers();
     }
 }
