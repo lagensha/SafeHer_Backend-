@@ -38,8 +38,8 @@ public class LoginService implements Login_Impl {
      }
 
     @Override
-    public void loginDelete(String email) {
-
+    public void loginDelete(String id) {
+        loginRepository.deleteById(id);
     }
 
     @Override
