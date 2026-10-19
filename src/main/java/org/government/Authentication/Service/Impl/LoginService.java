@@ -39,13 +39,13 @@ public class LoginService implements Login_Impl {
     public void loginUpdate(LoginDTO loginDTO) {
         LoginEntity loginEntity=modelMapper.map(loginDTO,LoginEntity.class);
         loginRepository.save(loginEntity);
-
      }
 
     @Override
     public void loginDelete(Long id) {
         loginRepository.deleteById(id);
     }
+
     @Override
     public LoginDTO getUserByEmail(String email) {
 
