@@ -56,13 +56,12 @@ public class LoginService implements Login_Impl {
 
     @Override
     public List<LoginDTO> getAllUsers() {
-       List<LoginEntity>loginEntities=loginRepository.findAll();
-        ArrayList<LoginDTO>loginDTOS=new ArrayList<>();
+        List<LoginEntity> loginEntities = loginRepository.findAll();
+        ArrayList<LoginDTO> loginDTOS = new ArrayList<>();
         loginEntities.forEach(loginEntity -> {
-            LoginDTO loginDTO=modelMapper.map(loginEntity,LoginDTO.class);
+            LoginDTO loginDTO = modelMapper.map(loginEntity, LoginDTO.class);
             loginDTOS.add(loginDTO);
         });
         return loginDTOS;
     }
-
 }
