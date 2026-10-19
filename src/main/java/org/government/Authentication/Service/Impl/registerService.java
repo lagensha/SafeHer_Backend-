@@ -20,7 +20,11 @@ public class registerService implements register_Impl {
 
     @Override
     public void registerUser(registerDTO registerDTO) {
-        registerEntity registerEntity = modelMapper.map(registerDTO, registerEntity.class);
+        registerEntity registerEntity = new registerEntity();
+        registerEntity.setName(registerDTO.getName());
+        registerEntity.setEmail(registerDTO.getEmail());
+        registerEntity.setPhoneNumber(registerDTO.getPhoneNumber());
+        registerEntity.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
         registerRepository.save(registerEntity);
     }
 
@@ -55,12 +59,4 @@ public class registerService implements register_Impl {
         });
         return registerDTOS;
     }
-
-     public void Register(registerDTO registerDTO){
-         registerEntity registerEntity = new registerEntity();
-         registerEntity.setName(registerDTO.getName());
-         registerEntity.setEmail(registerDTO.getEmail());
-            registerEntity.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
-            registerRepository.save(registerEntity);
-     }
 }
