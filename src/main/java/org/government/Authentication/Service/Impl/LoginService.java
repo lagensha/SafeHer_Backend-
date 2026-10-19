@@ -37,9 +37,9 @@ public class LoginService implements Login_Impl {
 
     @Override
     public void loginUpdate(LoginDTO loginDTO) {
-        LoginEntity loginEntity=modelMapper.map(loginDTO,LoginEntity.class);
+        LoginEntity loginEntity = modelMapper.map(loginDTO, LoginEntity.class);
         loginRepository.save(loginEntity);
-     }
+             }
 
     @Override
     public void loginDelete(Long id) {
@@ -47,9 +47,10 @@ public class LoginService implements Login_Impl {
     }
 
     @Override
-    public LoginDTO getUserByEmail(String email) {
-
-        return null;
+    public LoginDTO getUserById(Long id) {
+     LoginEntity loginEntity = loginRepository.findById(id).get();
+     LoginDTO loginDTO=modelMapper.map(loginEntity,LoginDTO.class);
+     return loginDTO;
     }
 
     @Override
