@@ -3,10 +3,7 @@ package org.government.Authentication.Controller;
 import lombok.RequiredArgsConstructor;
 import org.government.Authentication.DTO.Admin_LoginDTO;
 import org.government.Authentication.Service.Impl.Admin_LoginService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -27,9 +24,9 @@ public class Admin_LoginController  {
 
     }
 
-
+    @GetMapping("/SearchById/{id}")
     public Admin_LoginDTO getAdminLogin(Long id) {
-        return null;
+        return admin_loginService.getAdminLogin(id);
     }
 
 
