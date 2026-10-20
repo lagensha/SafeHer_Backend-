@@ -15,22 +15,22 @@ public class Admin_LoginController  {
      final private Admin_LoginService admin_loginService;
 
      @PostMapping("/adminLogin")
-    public void adminLogin(Admin_LoginDTO admin_loginDTO) {
+    public void adminLogin(@PathVariable Admin_LoginDTO admin_loginDTO) {
         admin_loginService.adminLogin(admin_loginDTO);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteAdminLogin(Long id) {
+    public void deleteAdminLogin(@PathVariable Long id) {
 
     }
 
     @GetMapping("/SearchById/{id}")
-    public Admin_LoginDTO getAdminLogin(Long id) {
+    public Admin_LoginDTO getAdminLogin(@PathVariable Long id) {
         return admin_loginService.getAdminLogin(id);
     }
 
-
+    @GetMapping("/getAll")
     public List<Admin_LoginDTO> getAllAdminLogins() {
-        return List.of();
+         return admin_loginService.getAllAdminLogins();
     }
 }
