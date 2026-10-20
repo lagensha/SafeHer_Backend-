@@ -26,7 +26,7 @@ public class Admin_LoginService implements Admin_Login_impl {
 
     @Override
     public void deleteAdminLogin(Long id) {
-
+        admin_login_repository.deleteById(id);
     }
 
     @Override
