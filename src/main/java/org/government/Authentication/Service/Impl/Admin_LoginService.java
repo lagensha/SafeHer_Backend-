@@ -20,8 +20,12 @@ public class Admin_LoginService implements Admin_Login_impl {
 
     @Override
     public void adminLogin(Admin_LoginDTO admin_loginDTO) {
-        Admin_LoginEntity adminLoginEntity = modelMapper.map(admin_loginDTO, Admin_LoginEntity.class);
-        admin_login_repository.save(adminLoginEntity);
+      Admin_LoginEntity adminLoginEntity = modelMapper.map(admin_loginDTO, Admin_LoginEntity.class);
+      String email= adminLoginEntity.getEmail();
+      if(email== null || !email.trim().toLowerCase().startsWith("admin")){
+            throw new RuntimeException("Invalid email address. Only admin emails are allowed.");
+      };
+      admin_login_repository.save(adminLoginEntity);
     }
 
     @Override
