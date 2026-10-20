@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -42,6 +43,12 @@ public class Admin_LoginService implements Admin_Login_impl {
 
     @Override
     public List<Admin_LoginDTO> getAllAdminLogins() {
-        return List.of();
+        List<Admin_LoginEntity>adminLoginEntities=admin_login_repository.findAll();
+        ArrayList<Admin_LoginDTO>adminLoginDTOS=new ArrayList<>();
+        adminLoginEntities.forEach(adminLoginEntity -> {
+            Admin_LoginDTO adminLoginDTO = modelMapper.map(adminLoginEntity, Admin_LoginDTO.class);
+            adminLoginDTOS.add(adminLoginDTO);
+        });
+        return adminLoginDTOS;
     }
 }
